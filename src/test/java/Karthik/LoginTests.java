@@ -1,21 +1,28 @@
 package Karthik;
 
+import Pages.BasePage;
 import Pages.SignInPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-public class StartTest {
+public class LoginTests {
 
     @Test
-    public void openDriver() {
+    public void login() {
 
         WebDriver driver = new ChromeDriver();
-        SignInPage signInPage = new SignInPage(driver);
-        signInPage.goTo();
-        signInPage.signIn("test@kar.test","Tester123");
+        BasePage basePage = new BasePage(driver);
+        basePage.goToSignInPage();
+        //SignInPage("test@kar.test","Tester123");
         String title =  driver.getTitle();
         System.out.println(title);
         driver.close();
+    }
+
+    @Test
+    public void createAccount() {
+
+
     }
 }
